@@ -1,0 +1,179 @@
+# ImPex for Importing Product Media
+
+# Macros / Replacement Parameter definitions
+$productCatalog=eHealthProductCatalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog]
+$media=@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator]
+$thumbnail=thumbnail(code, $catalogVersion)
+$picture=picture(code, $catalogVersion)
+$thumbnails=thumbnails(code, $catalogVersion)
+$detail=detail(code, $catalogVersion)
+$normal=normal(code, $catalogVersion)
+$others=others(code, $catalogVersion)
+$data_sheet=data_sheet(code, $catalogVersion)
+$medias=medias(code, $catalogVersion)
+$galleryImages=galleryImages(qualifier, $catalogVersion)
+$siteResource=jar:com.ehealth.initialdata.setup.InitialDataSystemSetup&/eHealthinitialdata/import/sampledata/productCatalogs/$productCatalog
+
+# Create Media
+INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];$media;mime[default='image/jpeg'];$catalogVersion;folder(qualifier)
+;1200Wx1200H;/1200Wx1200H/10101.jpg;$siteResource/images/1200Wx1200H/10101.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/10102.jpg;$siteResource/images/1200Wx1200H/10102.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/10201.jpg;$siteResource/images/1200Wx1200H/10201.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/10202.jpg;$siteResource/images/1200Wx1200H/10202.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/10301.jpg;$siteResource/images/1200Wx1200H/10301.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/10302.jpg;$siteResource/images/1200Wx1200H/10302.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/20001.jpg;$siteResource/images/1200Wx1200H/20001.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/20002.jpg;$siteResource/images/1200Wx1200H/20002.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/20003.jpg;$siteResource/images/1200Wx1200H/20003.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/30101.jpg;$siteResource/images/1200Wx1200H/30101.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/30102.jpg;$siteResource/images/1200Wx1200H/30102.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/30201.jpg;$siteResource/images/1200Wx1200H/30201.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/30202.jpg;$siteResource/images/1200Wx1200H/30202.jpg;;;images
+
+;1200Wx1200H;/1200Wx1200H/PatanjaliProducts.jpg;$siteResource/images/1200Wx1200H/PatanjaliProducts.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/PatanjaliProducts1.jpg;$siteResource/images/1200Wx1200H/PatanjaliProducts1.jpg;;;images
+
+;515Wx515H;/515Wx515H/10101.jpg;$siteResource/images/515Wx515H/10101.jpg;;;images
+;515Wx515H;/515Wx515H/10102.jpg;$siteResource/images/515Wx515H/10102.jpg;;;images
+;515Wx515H;/515Wx515H/10201.jpg;$siteResource/images/515Wx515H/10201.jpg;;;images
+;515Wx515H;/515Wx515H/10202.jpg;$siteResource/images/515Wx515H/10202.jpg;;;images
+;515Wx515H;/515Wx515H/10301.jpg;$siteResource/images/515Wx515H/10301.jpg;;;images
+;515Wx515H;/515Wx515H/10302.jpg;$siteResource/images/515Wx515H/10302.jpg;;;images
+;515Wx515H;/515Wx515H/20001.jpg;$siteResource/images/515Wx515H/20001.jpg;;;images
+;515Wx515H;/515Wx515H/20002.jpg;$siteResource/images/515Wx515H/20002.jpg;;;images
+;515Wx515H;/515Wx515H/20003.jpg;$siteResource/images/515Wx515H/20003.jpg;;;images
+;515Wx515H;/515Wx515H/30101.jpg;$siteResource/images/515Wx515H/30101.jpg;;;images
+;515Wx515H;/515Wx515H/30102.jpg;$siteResource/images/515Wx515H/30102.jpg;;;images
+;515Wx515H;/515Wx515H/30201.jpg;$siteResource/images/515Wx515H/30201.jpg;;;images
+;515Wx515H;/515Wx515H/30202.jpg;$siteResource/images/515Wx515H/30202.jpg;;;images
+;515Wx515H;/515Wx515H/30202.jpg;$siteResource/images/515Wx515H/30202.jpg;;;images
+
+
+;515Wx515H;/515Wx515H/PatanjaliProducts.jpg;$siteResource/images/515Wx515H/PatanjaliProducts.jpg;;;images
+;515Wx515H;/515Wx515H/PatanjaliProducts1.jpg;$siteResource/images/515Wx515H/PatanjaliProducts1.jpg;;;images
+
+;300Wx300H;/300Wx300H/10101.jpg;$siteResource/images/300Wx300H/10101.jpg;;;images
+;300Wx300H;/300Wx300H/10102.jpg;$siteResource/images/300Wx300H/10102.jpg;;;images
+;300Wx300H;/300Wx300H/10201.jpg;$siteResource/images/300Wx300H/10201.jpg;;;images
+;300Wx300H;/300Wx300H/10202.jpg;$siteResource/images/300Wx300H/10202.jpg;;;images
+;300Wx300H;/300Wx300H/10301.jpg;$siteResource/images/300Wx300H/10301.jpg;;;images
+;300Wx300H;/300Wx300H/10302.jpg;$siteResource/images/300Wx300H/10302.jpg;;;images
+;300Wx300H;/300Wx300H/20001.jpg;$siteResource/images/300Wx300H/20001.jpg;;;images
+;300Wx300H;/300Wx300H/20002.jpg;$siteResource/images/300Wx300H/20002.jpg;;;images
+;300Wx300H;/300Wx300H/20003.jpg;$siteResource/images/300Wx300H/20003.jpg;;;images
+;300Wx300H;/300Wx300H/30101.jpg;$siteResource/images/300Wx300H/30101.jpg;;;images
+;300Wx300H;/300Wx300H/30102.jpg;$siteResource/images/300Wx300H/30102.jpg;;;images
+;300Wx300H;/300Wx300H/30201.jpg;$siteResource/images/300Wx300H/30201.jpg;;;images
+;300Wx300H;/300Wx300H/30202.jpg;$siteResource/images/300Wx300H/30202.jpg;;;images
+
+
+;300Wx300H;/300Wx300H/PatanjaliProducts.jpg;$siteResource/images/300Wx300H/PatanjaliProducts.jpg;;;images
+;300Wx300H;/300Wx300H/PatanjaliProducts1.jpg;$siteResource/images/300Wx300H/PatanjaliProducts1.jpg;;;images
+
+
+;96Wx96H;/96Wx96H/10101.jpg;$siteResource/images/96Wx96H/10101.jpg;;;images
+;96Wx96H;/96Wx96H/10102.jpg;$siteResource/images/96Wx96H/10102.jpg;;;images
+;96Wx96H;/96Wx96H/10201.jpg;$siteResource/images/96Wx96H/10201.jpg;;;images
+;96Wx96H;/96Wx96H/10202.jpg;$siteResource/images/96Wx96H/10202.jpg;;;images
+;96Wx96H;/96Wx96H/10301.jpg;$siteResource/images/96Wx96H/10301.jpg;;;images
+;96Wx96H;/96Wx96H/10302.jpg;$siteResource/images/96Wx96H/10302.jpg;;;images
+;96Wx96H;/96Wx96H/20001.jpg;$siteResource/images/96Wx96H/20001.jpg;;;images
+;96Wx96H;/96Wx96H/20002.jpg;$siteResource/images/96Wx96H/20002.jpg;;;images
+;96Wx96H;/96Wx96H/20003.jpg;$siteResource/images/96Wx96H/20003.jpg;;;images
+;96Wx96H;/96Wx96H/30101.jpg;$siteResource/images/96Wx96H/30101.jpg;;;images
+;96Wx96H;/96Wx96H/30102.jpg;$siteResource/images/96Wx96H/30102.jpg;;;images
+;96Wx96H;/96Wx96H/30201.jpg;$siteResource/images/96Wx96H/30201.jpg;;;images
+;96Wx96H;/96Wx96H/30202.jpg;$siteResource/images/96Wx96H/30202.jpg;;;images
+
+
+;96Wx96H;/96Wx96H/PatanjaliProducts.jpg;$siteResource/images/96Wx96H/PatanjaliProducts.jpg;;;images
+;96Wx96H;/96Wx96H/PatanjaliProducts1.jpg;$siteResource/images/96Wx96H/PatanjaliProducts1.jpg;;;images
+
+
+
+;65Wx65H;/65Wx65H/10101.jpg;$siteResource/images/65Wx65H/10101.jpg;;;images
+;65Wx65H;/65Wx65H/10102.jpg;$siteResource/images/65Wx65H/10102.jpg;;;images
+;65Wx65H;/65Wx65H/10201.jpg;$siteResource/images/65Wx65H/10201.jpg;;;images
+;65Wx65H;/65Wx65H/10202.jpg;$siteResource/images/65Wx65H/10202.jpg;;;images
+;65Wx65H;/65Wx65H/10301.jpg;$siteResource/images/65Wx65H/10301.jpg;;;images
+;65Wx65H;/65Wx65H/10302.jpg;$siteResource/images/65Wx65H/10302.jpg;;;images
+;65Wx65H;/65Wx65H/20001.jpg;$siteResource/images/65Wx65H/20001.jpg;;;images
+;65Wx65H;/65Wx65H/20002.jpg;$siteResource/images/65Wx65H/20002.jpg;;;images
+;65Wx65H;/65Wx65H/20003.jpg;$siteResource/images/65Wx65H/20003.jpg;;;images
+;65Wx65H;/65Wx65H/30101.jpg;$siteResource/images/65Wx65H/30101.jpg;;;images
+;65Wx65H;/65Wx65H/30102.jpg;$siteResource/images/65Wx65H/30102.jpg;;;images
+;65Wx65H;/65Wx65H/30201.jpg;$siteResource/images/65Wx65H/30201.jpg;;;images
+;65Wx65H;/65Wx65H/30202.jpg;$siteResource/images/65Wx65H/30202.jpg;;;images
+
+
+;65Wx65H;/65Wx65H/PatanjaliProducts.jpg;$siteResource/images/65Wx65H/PatanjaliProducts.jpg;;;images
+;65Wx65H;/65Wx65H/PatanjaliProducts1.jpg;$siteResource/images/65Wx65H/PatanjaliProducts1.jpg;;;images
+
+;30Wx30H;/30Wx30H/10101.jpg;$siteResource/images/30Wx30H/10101.jpg;;;images
+;30Wx30H;/30Wx30H/10102.jpg;$siteResource/images/30Wx30H/10102.jpg;;;images
+;30Wx30H;/30Wx30H/10201.jpg;$siteResource/images/30Wx30H/10201.jpg;;;images
+;30Wx30H;/30Wx30H/10202.jpg;$siteResource/images/30Wx30H/10202.jpg;;;images
+;30Wx30H;/30Wx30H/10301.jpg;$siteResource/images/30Wx30H/10301.jpg;;;images
+;30Wx30H;/30Wx30H/10302.jpg;$siteResource/images/30Wx30H/10302.jpg;;;images
+;30Wx30H;/30Wx30H/20001.jpg;$siteResource/images/30Wx30H/20001.jpg;;;images
+;30Wx30H;/30Wx30H/20002.jpg;$siteResource/images/30Wx30H/20002.jpg;;;images
+;30Wx30H;/30Wx30H/20003.jpg;$siteResource/images/30Wx30H/20003.jpg;;;images
+;30Wx30H;/30Wx30H/30101.jpg;$siteResource/images/30Wx30H/30101.jpg;;;images
+;30Wx30H;/30Wx30H/30102.jpg;$siteResource/images/30Wx30H/30102.jpg;;;images
+;30Wx30H;/30Wx30H/30201.jpg;$siteResource/images/30Wx30H/30201.jpg;;;images
+;30Wx30H;/30Wx30H/30202.jpg;$siteResource/images/30Wx30H/30202.jpg;;;images
+
+
+;30Wx30H;/30Wx30H/PatanjaliProducts.jpg;$siteResource/images/30Wx30H/PatanjaliProducts.jpg;;;images
+;30Wx30H;/30Wx30H/PatanjaliProducts1.jpg;$siteResource/images/30Wx30H/PatanjaliProducts1.jpg;;;images
+
+
+# Create Media Containers
+INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$catalogVersion
+;10101_1.jpg;/1200Wx1200H/10101.jpg,/515Wx515H/10101.jpg,/300Wx300H/10101.jpg,/96Wx96H/10101.jpg,/65Wx65H/10101.jpg,/30Wx30H/10101.jpg;
+;10102_2.jpg;/1200Wx1200H/10102.jpg,/515Wx515H/10102.jpg,/300Wx300H/10102.jpg,/96Wx96H/10102.jpg,/65Wx65H/10102.jpg,/30Wx30H/10102.jpg;
+;10201_1.jpg;/1200Wx1200H/10201.jpg,/515Wx515H/10201.jpg,/300Wx300H/10201.jpg,/96Wx96H/10201.jpg,/65Wx65H/10201.jpg,/30Wx30H/10201.jpg;
+;10202_2.jpg;/1200Wx1200H/10202.jpg,/515Wx515H/10202.jpg,/300Wx300H/10202.jpg,/96Wx96H/10202.jpg,/65Wx65H/10202.jpg,/30Wx30H/10202.jpg;
+;10301_1.jpg;/1200Wx1200H/10301.jpg,/515Wx515H/10301.jpg,/300Wx300H/10301.jpg,/96Wx96H/10301.jpg,/65Wx65H/10301.jpg,/30Wx30H/10301.jpg;
+;10302_2.jpg;/1200Wx1200H/10302.jpg,/515Wx515H/10302.jpg,/300Wx300H/10302.jpg,/96Wx96H/10302.jpg,/65Wx65H/10302.jpg,/30Wx30H/10302.jpg;
+;20001_1.jpg;/1200Wx1200H/20001.jpg,/515Wx515H/20001.jpg,/300Wx300H/20001.jpg,/96Wx96H/20001.jpg,/65Wx65H/20001.jpg,/30Wx30H/20001.jpg;
+;20002_2.jpg;/1200Wx1200H/20002.jpg,/515Wx515H/20002.jpg,/300Wx300H/20002.jpg,/96Wx96H/20002.jpg,/65Wx65H/20002.jpg,/30Wx30H/20002.jpg;
+;20003_3.jpg;/1200Wx1200H/20003.jpg,/515Wx515H/20003.jpg,/300Wx300H/20003.jpg,/96Wx96H/20003.jpg,/65Wx65H/20003.jpg,/30Wx30H/20003.jpg;
+;30101_1.jpg;/1200Wx1200H/30101.jpg,/515Wx515H/30101.jpg,/300Wx300H/30101.jpg,/96Wx96H/30101.jpg,/65Wx65H/30101.jpg,/30Wx30H/30101.jpg;
+;30102_2.jpg;/1200Wx1200H/30102.jpg,/515Wx515H/30102.jpg,/300Wx300H/30102.jpg,/96Wx96H/30102.jpg,/65Wx65H/30102.jpg,/30Wx30H/30102.jpg;
+;30201_1.jpg;/1200Wx1200H/30201.jpg,/515Wx515H/30201.jpg,/300Wx300H/30201.jpg,/96Wx96H/30201.jpg,/65Wx65H/30201.jpg,/30Wx30H/30201.jpg;
+;30202_2.jpg;/1200Wx1200H/30202.jpg,/515Wx515H/30202.jpg,/300Wx300H/30202.jpg,/96Wx96H/30202.jpg,/65Wx65H/30202.jpg,/30Wx30H/30202.jpg;
+
+
+;PatanjaliProducts_1.jpg;/1200Wx1200H/PatanjaliProducts.jpg,/515Wx515H/PatanjaliProducts.jpg,/300Wx300H/PatanjaliProducts.jpg,/96Wx96H/PatanjaliProducts.jpg,/65Wx65H/PatanjaliProducts.jpg,/30Wx30H/PatanjaliProducts.jpg;
+;PatanjaliProducts1_1.jpg;/1200Wx1200H/PatanjaliProducts1.jpg,/515Wx515H/PatanjaliProducts1.jpg,/300Wx300H/PatanjaliProducts1.jpg,/96Wx96H/PatanjaliProducts1.jpg,/65Wx65H/PatanjaliProducts1.jpg,/30Wx30H/PatanjaliProducts1.jpg;
+
+
+
+
+# Update Products with Media and Media Containers
+INSERT_UPDATE Product;code[unique=true];$picture;$thumbnail;$detail;$others;$normal;$thumbnails;$galleryImages;$catalogVersion
+;10101;/300Wx300H/10101.jpg;/96Wx96H/10101.jpg;;/515Wx515H/10101.jpg,/300Wx300H/10101.jpg,/96Wx96H/10101.jpg,/65Wx65H/10101.jpg,/30Wx30H/10101.jpg;/300Wx300H/10101.jpg;/96Wx96H/10101.jpg;10101_1.jpg;
+;10102;/300Wx300H/10102.jpg;/96Wx96H/10102.jpg;;/515Wx515H/10102.jpg,/300Wx300H/10102.jpg,/96Wx96H/10102.jpg,/65Wx65H/10102.jpg,/30Wx30H/10102.jpg;/300Wx300H/10102.jpg;/96Wx96H/10102.jpg;10102_2.jpg;
+;10201;/300Wx300H/10201.jpg;/96Wx96H/10201.jpg;;/515Wx515H/10201.jpg,/300Wx300H/10201.jpg,/96Wx96H/10201.jpg,/65Wx65H/10201.jpg,/30Wx30H/10201.jpg;/300Wx300H/10201.jpg;/96Wx96H/10201.jpg;10201_1.jpg;
+;10202;/300Wx300H/10202.jpg;/96Wx96H/10202.jpg;;/515Wx515H/10202.jpg,/300Wx300H/10202.jpg,/96Wx96H/10202.jpg,/65Wx65H/10202.jpg,/30Wx30H/10202.jpg;/300Wx300H/10202.jpg;/96Wx96H/10202.jpg;10202_2.jpg;
+;10301;/300Wx300H/10301.jpg;/96Wx96H/10301.jpg;;/515Wx515H/10301.jpg,/300Wx300H/10301.jpg,/96Wx96H/10301.jpg,/65Wx65H/10301.jpg,/30Wx30H/10301.jpg;/300Wx300H/10301.jpg;/96Wx96H/10301.jpg;10301_1.jpg;
+;10302;/300Wx300H/10302.jpg;/96Wx96H/10302.jpg;;/515Wx515H/10302.jpg,/300Wx300H/10302.jpg,/96Wx96H/10302.jpg,/65Wx65H/10302.jpg,/30Wx30H/10302.jpg;/300Wx300H/10302.jpg;/96Wx96H/10302.jpg;10302_2.jpg;
+;20001;/300Wx300H/20001.jpg;/96Wx96H/20001.jpg;;/515Wx515H/20001.jpg,/300Wx300H/20001.jpg,/96Wx96H/20001.jpg,/65Wx65H/20001.jpg,/30Wx30H/20001.jpg;/300Wx300H/20001.jpg;/96Wx96H/20001.jpg;20001_1.jpg;
+;20002;/300Wx300H/20002.jpg;/96Wx96H/20002.jpg;;/515Wx515H/20002.jpg,/300Wx300H/20002.jpg,/96Wx96H/20002.jpg,/65Wx65H/20002.jpg,/30Wx30H/20002.jpg;/300Wx300H/20002.jpg;/96Wx96H/20002.jpg;20002_2.jpg;
+;20003;/300Wx300H/20003.jpg;/96Wx96H/20003.jpg;;/515Wx515H/20003.jpg,/300Wx300H/20003.jpg,/96Wx96H/20003.jpg,/65Wx65H/20003.jpg,/30Wx30H/20003.jpg;/300Wx300H/20003.jpg;/96Wx96H/20003.jpg;20003_3.jpg;
+;30101;/300Wx300H/30101.jpg;/96Wx96H/30101.jpg;;/515Wx515H/30101.jpg,/300Wx300H/30101.jpg,/96Wx96H/30101.jpg,/65Wx65H/30101.jpg,/30Wx30H/30101.jpg;/300Wx300H/30101.jpg;/96Wx96H/30101.jpg;30101_1.jpg;
+;30102;/300Wx300H/30102.jpg;/96Wx96H/30102.jpg;;/515Wx515H/30102.jpg,/300Wx300H/30102.jpg,/96Wx96H/30102.jpg,/65Wx65H/30102.jpg,/30Wx30H/30102.jpg;/300Wx300H/30102.jpg;/96Wx96H/30102.jpg;30102_2.jpg;
+;30201;/300Wx300H/30201.jpg;/96Wx96H/30201.jpg;;/515Wx515H/30201.jpg,/300Wx300H/30201.jpg,/96Wx96H/30201.jpg,/65Wx65H/30201.jpg,/30Wx30H/30201.jpg;/300Wx300H/30201.jpg;/96Wx96H/30201.jpg;30201_1.jpg;
+;30202;/300Wx300H/30202.jpg;/96Wx96H/30202.jpg;;/515Wx515H/30202.jpg,/300Wx300H/30202.jpg,/96Wx96H/30202.jpg,/65Wx65H/30202.jpg,/30Wx30H/30202.jpg;/300Wx300H/30202.jpg;/96Wx96H/30202.jpg;30202_2.jpg;
+
+
+
+;111;/300Wx300H/PatanjaliProducts.jpg;/96Wx96H/PatanjaliProducts.jpg;;/515Wx515H/PatanjaliProducts.jpg,/300Wx300H/PatanjaliProducts.jpg,/96Wx96H/PatanjaliProducts.jpg,/65Wx65H/PatanjaliProducts.jpg,/30Wx30H/PatanjaliProducts.jpg;/300Wx300H/PatanjaliProducts.jpg;/96Wx96H/PatanjaliProducts.jpg;PatanjaliProducts_1.jpg;
+;222;/300Wx300H/PatanjaliProducts1.jpg;/96Wx96H/PatanjaliProducts1.jpg;;/515Wx515H/PatanjaliProducts1.jpg,/300Wx300H/PatanjaliProducts1.jpg,/96Wx96H/PatanjaliProducts1.jpg,/65Wx65H/PatanjaliProducts1.jpg,/30Wx30H/PatanjaliProducts1.jpg;/300Wx300H/PatanjaliProducts1.jpg;/96Wx96H/PatanjaliProducts1.jpg;PatanjaliProducts1_1.jpg;
+
+
+
+

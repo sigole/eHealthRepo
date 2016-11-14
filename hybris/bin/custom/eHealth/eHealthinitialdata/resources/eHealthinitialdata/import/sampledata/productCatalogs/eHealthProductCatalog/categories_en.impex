@@ -1,0 +1,23 @@
+# ImpEx for Importing Categories
+
+# Macros / Replacement Parameter definitions
+$productCatalog=eHealthProductCatalog
+$productCatalogName=eHealth Product Catalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+
+# Language
+$lang=en
+
+# Create Categories
+UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang]
+;1;;eHealth
+;100;;Prescription
+;200;;Equipment
+;300;;OTC
+;101;;Homeopathic
+;102;;Ayurvedic
+;103;;Allopathic
+;301;;First Aid
+;302;;Health Care
+;400;;Coming Soon Product

@@ -1,0 +1,100 @@
+# ImpEx for Points of Service
+
+# Macros / Replacement Parameter definitions
+$storeUid=eHealth
+$productCatalog=eHealthProductCatalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$storeImage=storeImage(qualifier, $catalogVersion)
+
+$standardHours=electronics-japan-standard-hours
+$weekendHours=electronics-japan-weekend-hours
+
+$mumbaiLatitude=50.29230
+$mumbaiLongitude=18.66104
+$noidaLatitude=48.14434
+$noidaLongitude=11.55071
+
+INSERT_UPDATE OpeningSchedule;code[unique=true];
+
+INSERT_UPDATE WeekdayOpeningDay;openingSchedule(code)[unique=true];dayOfWeek(code)[unique=true];openingTime[dateformat=hh:mm];closingTime[dateformat=hh:mm];
+;$standardHours;MONDAY   ; 09:00; 20:00
+;$standardHours;TUESDAY  ; 09:00; 20:00
+;$standardHours;WEDNESDAY; 09:00; 20:00
+;$standardHours;THURSDAY ; 09:00; 20:00
+;$standardHours;FRIDAY   ; 09:00; 20:00
+;$standardHours;SATURDAY ; 10:00; 20:00
+
+;$weekendHours;MONDAY   ; 09:00; 20:00
+;$weekendHours;TUESDAY  ; 09:00; 20:00
+;$weekendHours;WEDNESDAY; 09:00; 20:00
+;$weekendHours;THURSDAY ; 09:00; 20:00
+;$weekendHours;FRIDAY   ; 09:00; 20:00
+;$weekendHours;SATURDAY ; 10:00; 20:00
+;$weekendHours;SUNDAY   ; 10:00; 16:00
+
+
+
+INSERT_UPDATE SpecialOpeningDay;openingSchedule(code)[unique=true];date[unique=true,dateformat=dd.MM.yyyy];closed;openingTime[dateformat=hh:mm];closingTime[dateformat=hh:mm]
+;$standardHours; 01.01.2014 ;true
+;$standardHours; 14.01.2014 ;true
+;$standardHours; 11.02.2014 ;true
+;$standardHours; 20.03.2014 ;true
+;$standardHours; 29.04.2014 ;true
+;$standardHours; 03.05.2014 ;true
+;$standardHours; 04.05.2014 ;true
+;$standardHours; 05.05.2014 ;true
+;$standardHours; 15.07.2014 ;true
+;$standardHours; 16.09.2014 ;true
+;$standardHours; 23.09.2014 ;true
+;$standardHours; 14.10.2014 ;true
+;$standardHours; 03.11.2014 ;true
+;$standardHours; 23.11.2014 ;true
+;$standardHours; 23.12.2014 ;true
+
+;$weekendHours; 01.01.2014 ;true
+;$weekendHours; 14.01.2014 ;true
+;$weekendHours; 11.02.2014 ;true
+;$weekendHours; 20.03.2014 ;true
+;$weekendHours; 29.04.2014 ;true
+;$weekendHours; 03.05.2014 ;true
+;$weekendHours; 04.05.2014 ;true
+;$weekendHours; 05.05.2014 ;true
+;$weekendHours; 15.07.2014 ;true
+;$weekendHours; 16.09.2014 ;true
+;$weekendHours; 23.09.2014 ;true
+;$weekendHours; 14.10.2014 ;true
+;$weekendHours; 03.11.2014 ;true
+;$weekendHours; 23.11.2014 ;true
+;$weekendHours; 23.12.2014 ;true
+
+INSERT_UPDATE Address;&addrID;streetname;streetnumber;postalcode[unique=true];town[unique=true];country(isocode);region(isocode);phone1;owner(PointOfService.name)[unique=true]
+;address1;KEM_Street;12;;Mumbai;PL;;+81 1988 3600;KEM-Mumbai;
+;address2;City-Hospital_Street;13;;Noida;DE;;+81 1988 3610;CITY-Noida;
+
+
+INSERT_UPDATE PointOfService;name[unique=true];type(code);address(&addrID);latitude;longitude;geocodeTimestamp[dateformat=dd-MM-yyyy];$storeImage;openingSchedule(code);basestore(uid)[default=$storeUid];features(code)
+;KEM-Mumbai;STORE;address1;$mumbaiLatitude;$mumbaiLongitude;29-04-2011;electronics_store_01;$standardHours;
+;CITY-Noida;STORE;address2;$noidaLatitude;$noidaLongitude;22-04-2011;electronics_store_02;$standardHours;
+ 
+
+
+	
+
+INSERT_UPDATE StoreLocatorFeature;code[unique=true]
+;wheelchair
+;creche
+;sundayWorkshops
+;buyOnlinePickupInStore
+
+
+
+UPDATE PointOfService;name[unique=true];features(code);
+;KEM-Mumbai;wheelchair,creche,buyOnlinePickupInStore;sundayWorkshops;
+;CITY-Noida;wheelchair,creche,buyOnlinePickupInStore;sundayWorkshops;
+
+INSERT_UPDATE PoS2WarehouseRel;source(name)[unique=true];target(code)[unique=true]
+;KEM-Mumbai;warehouse_e
+;CITY-Noida;warehouse_e
+		
+		 

@@ -1,0 +1,72 @@
+# ImpEx for Importing Prices
+
+# Macros / Replacement Parameter definitions
+$productCatalog=eHealthProductCatalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default='$productCatalog:Staged']
+$prices=Europe1prices[translator=de.hybris.platform.europe1.jalo.impex.Europe1PricesTranslator]
+$taxGroup=Europe1PriceFactory_PTG(code)[default=jp-vat-full] 
+# Set product approval status to Approved only for those products that have prices.
+$approved=approvalstatus(code)[default='approved']
+
+#UPDATE Product;code[unique=true];$prices;$approved;$catalogVersion;Europe1PriceFactory_PTG(code)
+
+
+
+UPDATE Product;code[unique=true];$prices;$approved;$catalogVersion;$taxGroup
+;10101
+;10102
+;10201
+;10202
+;10301
+;10302
+;20001
+;20002
+;20003
+;30101
+;30102
+;30201
+;30202
+
+
+######## Insert below ##################
+INSERT_UPDATE PriceRow;productId[unique=true];unit(code[unique=true,default=pieces]);currency(isocode)[unique=true];price;minqtd;unitFactor;net
+;10101;pieces;USD;8.98;1;1;false
+;10101;pieces;GBP;6.12;1;1;false
+
+
+;10103;pieces;USD;10.98;1;1;false
+;10103;pieces;GBP;4.12;1;1;false
+
+;10104;pieces;USD;5.98;1;1;false
+;10104;pieces;GBP;2.12;1;1;false
+
+
+
+;10102;pieces;GBP;12.43;1;1;false
+;10102;pieces;USD;10.98;1;1;false
+
+;10201;pieces;GBP;9.43;1;1;false
+;10202;pieces;GBP;8.43;1;1;false
+;10301;pieces;GBP;7.99;1;1;false
+;10302;pieces;GBP;10.21;1;1;false
+;20001;pieces;GBP;11.23;1;1;false
+;20002;pieces;GBP;9.43;1;1;false
+;20003;pieces;GBP;8.11;1;1;false
+;30101;pieces;GBP;25.13;1;1;false
+;30102;pieces;GBP;21.40;1;1;false
+;30201;pieces;GBP;10.43;1;1;false
+;30202;pieces;GBP;8.43;1;1;false
+
+;10201;pieces;USD;11.98;1;1;false
+;10202;pieces;USD;12.98;1;1;false
+;10301;pieces;USD;11.98;1;1;false
+;10302;pieces;USD;14.90;1;1;false
+;20001;pieces;USD;16.66;1;1;false
+;20002;pieces;USD;16.98;1;1;false
+;20003;pieces;USD;15.00;1;1;false
+;30101;pieces;USD;32.99;1;1;false
+;30102;pieces;USD;30.98;1;1;false
+;30201;pieces;USD;15.950;1;1;false
+;30202;pieces;USD;13.66;1;1;false
+

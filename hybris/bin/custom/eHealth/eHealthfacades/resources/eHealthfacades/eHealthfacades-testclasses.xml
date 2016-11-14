@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testclasses><eHealthfacades><testclass>com.ehealth.facades.suggestion.DefaultSimpleSuggestionFacadeIntegrationTest</testclass><testclass>com.ehealth.facades.suggestion.impl.DefaultSimpleSuggestionFacadeTest</testclass></eHealthfacades></testclasses>

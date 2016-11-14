@@ -1,0 +1,38 @@
+# ImpEx for Importing Product Localisations
+ 
+# Macros / Replacement Parameter definitions
+$productCatalog=eHealthProductCatalog
+$productCatalogName=eHealth Product Catalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+
+# Language
+$lang=en
+
+# Update allProducts with localisations
+# INSERT_UPDATE Product;code[unique=true];$catalogVersion;name[lang=$lang];summary[lang=$lang];description[lang=$lang]
+INSERT_UPDATE Product;code[unique=true];$catalogVersion;name[lang=$lang];summary[lang=$lang];description[lang=$lang]
+
+;10101;;Boiron;Boiron Homeopathic Medicine Cocculus Indicus, 6C Pellets, 80 Count Tube;"<p>A homeopathic medicine that works naturally.</p>";
+;10102;;WELLMIND VERTIGO;semecarpus anacardium juice, anamirta cocculus seed, conium maculatum flowering top, kerosene, and selenium tablet;"<p>
+WellMindTM Vertigo Tablets are a homeopathic drug product indicated for the treatment of vertigo/dizziness ofvarious origins; mild cognitive impairment (MCI) such as lack of concentration and forgetfulness.</p>";
+
+;10201;;Himalaya Cystone TABLETS;The natural choice in urinary calculi and UTI ;"<p>For the prevention and treatment of adult and pediatric urolithiasis (kidney stone formation), including calcium oxalate stones, calcium and phosphate stones and uric acid and urate bladder stones.</p>";
+;10202;;Himalaya SEPTILIN TABLET;Septilin from Himalaya Herbals is an Ayurvedic remedy that supports the body's defence mechanism ;"<p>As an immunomodulator in the management of upper and lower respiratory tract infections, allergic disorders of the upper respiratory tract, skin and soft tissue infections, dental and periodontal infections, ocular infections, bone and joint infections and urinary tract infections.</p>";
+
+;10301;;Disprin;DISPRIN 300MG DISPERSIBLE TABLETS Including dosage instructions and possible side effects.;"<p>Relieving mild to moderate pain including headache, migraine, nerve pain (neuralgia), toothache, sore throat, period pain.</p>";
+;10302;;Crocin; Crocin Advance is India’s first paracetamol tablet with Optizorb technology;"<p>It starts releasing its medicine in as little as 5 minutes. It gets absorbed 25% faster than standard paracetamol.</p>";
+
+;20001;;Stethoscope;Littmann Stethoscope Classic II Pediatric: Black 2113;"<p>Superb sound quality for smaller frames... All the quality of the ‘industry standard’.</p>";
+;20002;;Portable Ultrasound Machine;Digital Ultarsound Imaging sytem CTS-8800; "<p> An improved operating system with greater stability (so your system won't crash).</p>";
+;20003;;accu chek sugar monitor;Accu Chek Active Blood Glucose Meter Kit Multicolor.;"<p>Simplify your blood glucose monitoring. With pre-loaded test strips and a one-click lancing device, our blood sugar monitors are comfortable and easy to use.</p>";
+
+;30101;;Complete First Aid Kit;Complete First Aid Kit;"<p>It includes a pack of fast relieving products - RelisprayDr to fight pain, mistdress for cuts and wounds, coolex for burns and Vinodine to fight infection.</p>";
+;30102;;JOHNSON & JOHNSON BAND-AID;Medical product band aid 70X18mm;"<p>Creates air channels for superior breathability;Creates air channels for superior breathability. Wicks away blood to keep wounds clean.</p>";
+
+;30201;;Listerine Coolmint Mouthwash;Mouthwash provides 24-hour protection against plaque, bad breath and gum;"<p>Fights germs that cause bad breath, plaque and gum problems.</p>";
+;30202;;Bio-Oil;The No.1 selling scar and stretch mark product;"<p>The Bio-Oil formulation is a combination of plant extracts and vitamins suspended in an oil base.</p>";
+
+###################### For coming Soon ##########################
+;111;;PatanjaliProducts;PatanjaliProducts;Complete health care pack
+;222;;PatanjaliProducts1;PatanjaliProducts1;Complete health care pack1

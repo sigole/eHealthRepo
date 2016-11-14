@@ -1,0 +1,58 @@
+# ImpEx for Importing Products Stock Levels and Warehouses
+
+# Macros / Replacement Parameter definitions
+$productCatalog=eHealthProductCatalog
+$productCatalogName=eHealth Product Catalog
+$vendor=eHealth
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+
+
+INSERT_UPDATE Vendor;code[unique=true]
+;$vendor
+
+
+INSERT_UPDATE Warehouse;code[unique=true];vendor(code);default[default=true]
+;warehouse_s;eHealth;true
+;warehouse_e;eHealth;true
+;warehouse_w;eHealth;true
+;warehouse_n;eHealth;true
+
+
+
+
+INSERT_UPDATE StockLevel;available;warehouse(code)[unique=true];inStockStatus(code);maxPreOrder;maxStockLevelHistoryCount;overSelling;preOrder;productCode[unique=true];reserved
+;100;warehouse_e;forceInStock;0;0;0;0;10101;0;
+;100;warehouse_e;forceInStock;0;0;0;0;10102;0;
+;100;warehouse_e;forceInStock;0;0;0;0;10201;0;
+;100;warehouse_e;forceInStock;0;0;0;0;10202;0;
+;100;warehouse_e;forceInStock;0;0;0;0;10301;0;
+;100;warehouse_e;forceInStock;0;0;0;0;10302;0;
+;100;warehouse_e;forceInStock;0;0;0;0;20001;0;
+;100;warehouse_e;forceOutOfStock;0;0;0;0;20002;0;
+;100;warehouse_e;forceInStock;0;0;0;0;20003;0;
+;100;warehouse_e;forceInStock;0;0;0;0;30101;0;
+;100;warehouse_e;notSpecified;0;0;0;0;30102;0;
+;100;warehouse_e;forceInStock;0;0;0;0;30201;0;
+;100;warehouse_e;notSpecified;0;0;0;0;30202;0;
+
+
+
+INSERT_UPDATE Product;code[unique=true];$catalogVersion;stockLevels(productCode,warehouse(code));vendors(code)
+;10101;;10101:warehouse_e;eHealth
+;10102;;10102:warehouse_e;eHealth
+;10201;;10201:warehouse_e;eHealth
+;10202;;10202:warehouse_e;eHealth
+;10301;;10301:warehouse_e;eHealth
+;10302;;10302:warehouse_e;eHealth
+;20001;;20001:warehouse_e;eHealth
+;20002;;20002:warehouse_e;eHealth
+;20003;;20003:warehouse_e;eHealth
+;30101;;30101:warehouse_e;eHealth
+;30102;;30102:warehouse_e;eHealth
+;30201;;30201:warehouse_e;eHealth
+;30202;;30202:warehouse_e;eHealth
+
+;10103;;30202:warehouse_e;eHealth
+;10104;;30202:warehouse_e;eHealth
+
