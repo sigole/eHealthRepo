@@ -33,7 +33,12 @@
     <extension name='captchaaddon' />
     <extension name='customerticketingaddon' />
     <extension name='customersupportbackoffice' />
+    
+   <extension dir="${HYBRIS_BIN_DIR}/ext-addon/assistedservicestorefront"/>
+    <extension dir="${HYBRIS_BIN_DIR}/ext-commerce/assistedservicefacades"/>
+   
   </extensions>
 </hybrisconfig>
 
-<!-- git test -->
+<!-- git test213 -->
+<!-- new -->
